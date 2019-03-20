@@ -94,8 +94,9 @@ def train_classify(trans_data, trans_label, test_data, P):
 
 
 def calculate_error_rate(label_R, label_H, weight):
-    total = np.sum(weight)
-
-    print weight[:, 0] / total
-    print np.abs(label_R - label_H)
-    return np.sum(weight[:, 0] / total * np.abs(label_R - label_H))
+    #total = np.sum(weight)
+    incorrect=label_H!=label_R
+    
+    print(incorrect)
+    return np.mean(np.average(incorrect, weights=weight,axis=0)
+    # return np.sum(weight[:, 0] / total * np.abs(label_R - label_H))
